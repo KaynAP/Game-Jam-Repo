@@ -3,34 +3,24 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public PlayerAttack playerAttack;
     public Rigidbody2D rb;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
-    private Vector2 lastMoveDirection = Vector2.down;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
         
-        
-        if (lastMoveDirection.x < 0)
+        if (horizontal < 0)
             spriteRenderer.flipX = true;
         else
             spriteRenderer.flipX = false;
 
-        if (movement != Vector2.zero)
-        {
-            lastMoveDirection = movement;
-            playerAttack.SetLastMoveDirection(movement);
-        }
+        animator.SetFloat("Xinput", horizontal);
+        animator.SetFloat("Yinput", vertical);
 
-        animator.SetFloat("Xinput", lastMoveDirection.x);
-        animator.SetFloat("Yinput", lastMoveDirection.y);
-        animator.SetFloat("Speed", movement.magnitude);
-
-        rb.linearVelocity = new Vector2(movement.x, movement.y) * speed;
+        rb.linearVelocity = new Vector2(horizontal, vertical) * speed;
     }
 }
         
