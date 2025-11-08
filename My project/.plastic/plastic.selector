@@ -1,0 +1,3 @@
+repository "My project/2D Timeless RPG@3574352992414@cloud"
+  path "/"
+    smartbranch "/main"
