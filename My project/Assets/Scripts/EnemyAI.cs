@@ -2,10 +2,12 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
-{   
-    public float detectionRange = 5f;
-    public float speed = 2f;
+{
+    [Header("Enemy Settings")]
+    public float detectionRange = 12f;
+    public float speed = 7f;
 
+    [Header("References")]
     public Transform player;
     private Rigidbody2D rb;
     private Vector2 movement;
