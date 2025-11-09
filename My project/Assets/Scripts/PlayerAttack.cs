@@ -26,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         attackTimer = Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && attackTimer <= 0 && !animator.GetBool("IsAttacking"))
+        if (!(!Input.GetMouseButtonDown(0) || attackTimer > 0 || animator.GetBool("IsAttacking")))
         {
             animator.SetBool("IsAttacking", true);
             rb.linearVelocity = Vector2.zero;
