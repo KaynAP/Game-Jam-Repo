@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Details")]
     public float speed = 5f;
     public Rigidbody2D rb;
     public Animator animator;
@@ -11,12 +12,11 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        
-        if (horizontal < 0)
-            spriteRenderer.flipX = true;
-        else
-            spriteRenderer.flipX = false;
 
+        if (horizontal < 0) spriteRenderer.flipX = true;
+        else spriteRenderer.flipX = false;
+            
+    
         animator.SetFloat("Xinput", horizontal);
         animator.SetFloat("Yinput", vertical);
 

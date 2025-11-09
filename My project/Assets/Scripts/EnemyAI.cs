@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +18,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,12 @@ public class EnemyAI : MonoBehaviour
             movement = Vector2.zero;
             animator.SetFloat("Speed", 0);
         }
+
+        if (movement.x < 0)
+            spriteRenderer.flipX = true;
+        else if (movement.x > 0)
+            spriteRenderer.flipX = false;
+        Debug.DrawLine(transform.position, player.position, Color.red);
     }
 
     private void FixedUpdate()
