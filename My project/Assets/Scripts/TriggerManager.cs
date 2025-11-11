@@ -15,10 +15,10 @@ public class TriggerManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GameObject.name == "CaveEntranceLo")
+        if (collision.GameObject.name != "CaveEntranceLo")
         {
-            _CaveRoof.SetActive(false);
+            return;
         }
+        _CaveRoof.SetActive(false);
     }
-
 }

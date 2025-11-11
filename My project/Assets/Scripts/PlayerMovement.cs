@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Details")]
-    public float speed = 5f;
+    public float speed = 9f;
     public Rigidbody2D rb;
     public Animator animator;
     public SpriteRenderer spriteRenderer;

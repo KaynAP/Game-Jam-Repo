@@ -45,7 +45,8 @@ public class EnemyAI : MonoBehaviour
             spriteRenderer.flipX = true;
         else if (movement.x > 0)
             spriteRenderer.flipX = false;
-        Debug.DrawLine(transform.position, player.position, Color.red);
+        
+            Debug.DrawLine(transform.position, player.position, Color.red);
     }
 
     private void FixedUpdate()
